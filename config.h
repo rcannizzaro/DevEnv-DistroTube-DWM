@@ -86,13 +86,15 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-p", "Run: ", NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *dmenucmd[]    = { "dmenu_run", "-p", "Run: ", NULL };
+static const char *termcmd[]     = { "st", NULL };
+static const char *tabtermcmd[]  = { "tabbed", "-r 2", "st", "-w", "''", NULL };
 
 static Key keys[] = {
 	/* modifier             key        function        argument */
 	{ MODKEY|ShiftMask,     XK_Return, spawn,          {.v = dmenucmd } },
 	{ MODKEY,               XK_Return, spawn,          {.v = termcmd } },
+	{ Mod1Mask,             XK_Return, spawn,          {.v = tabtermcmd } },
 	{ MODKEY,               XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,     XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,     XK_k,      rotatestack,    {.i = -1 } },
@@ -127,24 +129,25 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,     XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,     XK_period, tagmon,         {.i = +1 } },
 	
+    /* Apps Launched with SUPER + ALT + KEY */
+	{ MODKEY|Mod1Mask,        XK_b,    spawn,          CMD("tabbed -r 2 surf -pe x '.surf/html/homepage.html'") },
+	{ MODKEY|Mod1Mask,        XK_c,    spawn,          CMD("st -e cmus") },
+	{ MODKEY|Mod1Mask,        XK_e,    spawn,          CMD("st -e neomutt") },
+	{ MODKEY|Mod1Mask,        XK_f,    spawn,          CMD("st -e vifm") },
+	{ MODKEY|Mod1Mask,        XK_h,    spawn,          CMD("st -e htop") },
+	{ MODKEY|Mod1Mask,        XK_i,    spawn,          CMD("st -e irssi") },
+	{ MODKEY|Mod1Mask,        XK_l,    spawn,          CMD("st -e lynx gopher://distro.tube") },
+	{ MODKEY|Mod1Mask,        XK_n,    spawn,          CMD("st -e newsboat") },
+	{ MODKEY|Mod1Mask,        XK_r,    spawn,          CMD("st -e rtv") },
+	
     /* Dmenu scripts launched with ALT + CTRL + KEY */
 	{ Mod1Mask|ControlMask, XK_e,      spawn,          CMD("./.dmenu/dmenu-edit-configs.sh") },
 	{ Mod1Mask|ControlMask, XK_m,      spawn,          CMD("./.dmenu/dmenu-sysmon.sh") },
 	{ Mod1Mask|ControlMask, XK_p,      spawn,          CMD("passmenu") },
 	{ Mod1Mask|ControlMask, XK_r,      spawn,          CMD("./.dmenu/dmenu-reddio.sh") },
 	{ Mod1Mask|ControlMask, XK_s,      spawn,          CMD("./.dmenu/dmenu-surfraw.sh") },
-	{ Mod1Mask|ControlMask, XK_t,      spawn,          CMD("./.dmenu/dmenu-trading.sh") },
 	{ Mod1Mask|ControlMask, XK_i,      spawn,          CMD("./.dmenu/dmenu-scrot.sh") },
     
-    /* Apps Launched with SUPER + ALT + KEY */
-	{ MODKEY|Mod1Mask,        XK_b,    spawn,          CMD("surf suckless.org") },
-	{ MODKEY|Mod1Mask,        XK_l,    spawn,          CMD("st -e lynx gopher://distro.tube") },
-	{ MODKEY|Mod1Mask,        XK_f,    spawn,          CMD("st -e vifm") },
-	{ MODKEY|Mod1Mask,        XK_i,    spawn,          CMD("st -e irssi") },
-	{ MODKEY|Mod1Mask,        XK_n,    spawn,          CMD("st -e newsboat") },
-	{ MODKEY|Mod1Mask,        XK_r,    spawn,          CMD("st -e rtv") },
-	{ MODKEY|Mod1Mask,        XK_e,    spawn,          CMD("st -e neomutt") },
-	
 	TAGKEYS(                  XK_1,          0)
 	TAGKEYS(                  XK_2,          1)
 	TAGKEYS(                  XK_3,          2)
@@ -174,4 +177,5 @@ static Button buttons[] = {
 	{ ClkTagBar,       MODKEY,      Button1,        tag,            {0} },
 	{ ClkTagBar,       MODKEY,      Button3,        toggletag,      {0} },
 };
+
 
