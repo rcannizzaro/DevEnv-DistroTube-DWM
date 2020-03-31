@@ -12,8 +12,16 @@ Dwm is an extremely fast, small, and dynamic window manager for X.  This is my p
 + uselessgap (adding gaps when more than one window)
 
 # Dependencies
++ libxft
++ ttf-hack
++ ttf-joypixels
++ st
++ dmenu
++ tabbed
 
-This dwm build expects st (the simple terminal) and dmenu to be installed on your system.  It is strongly recommended you install those before logging into dwm, otherwise you will be in for a tough time since you will not have access to the terminal or the run launcher that this build will be looking for.
+Also, you will need to add the following from the AUR:
++ nerd-fonts-complete (optional)
++ https://aur.archlinux.org/packages/libxft-bgra/ (needed for colored fonts and emojis)
 
 Also, if you are building this on an Ubuntu-based system, you need to install libx11-dev and xorg-dev.
 
