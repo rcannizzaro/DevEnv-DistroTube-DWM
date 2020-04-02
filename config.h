@@ -32,7 +32,7 @@ static const char col_cyan[]          = "#924441"; /* border color focused windo
  * 0xee adds wee bit of transparency.
  * Play with the value to get desired transparency.
  */
-static const unsigned int baralpha    = 0xff; 
+static const unsigned int baralpha    = 0xee; 
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]        = {
 	/*               fg         bg         border   */

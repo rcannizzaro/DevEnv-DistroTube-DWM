@@ -13,12 +13,15 @@ static const int showbar              = 1;        /* 0 means no bar */
 static const int topbar               = 1;        /* 0 means bottom bar */
 static const int horizpadbar          = 6;        /* horizontal padding for statusbar */
 static const int vertpadbar           = 7;        /* vertical padding for statusbar */
-static const char *fonts[]            = {"Mononoki Nerd Font:size=9", 
-										 "Noto Sans Mono:size=9:antialias=true:autohint=true", 
-										 "Symbola:size=9:antialias=true:autohint=true", 
-										 "Monospace:size=9:antialias=true:autohint=true"
+/* Mononoki Nerd Font must be installed from AUR nerd-fonts-complete.
+ * Otherwise, your default font will be Hack which is found in the standard
+ * Arch repos and is listed as a dependency for this build. JoyPixels is also
+ * a hard dependency and makes colored fonts and emojis possible.
+ */
+static const char *fonts[]            = {"Mononoki Nerd Font:size=9:antialias=true:autohint=true",
+                                         "Hack:size=8:antialias=true:autohint=true",
+                                         "JoyPixels:size=10:antialias=true:autohint=true"
 										};
-static const char dmenufont[]         = "Mononoki Nerd Font:size=9";
 static const char col_gray1[]         = "#282a36";
 static const char col_gray2[]         = "#282a36"; /* border color unfocused windows */
 static const char col_gray3[]         = "#96b5b4";
@@ -29,7 +32,7 @@ static const char col_cyan[]          = "#924441"; /* border color focused windo
  * 0xee adds wee bit of transparency.
  * Play with the value to get desired transparency.
  */
-static const unsigned int baralpha    = 0xff; 
+static const unsigned int baralpha    = 0xee; 
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]        = {
 	/*               fg         bg         border   */
@@ -177,5 +180,3 @@ static Button buttons[] = {
 	{ ClkTagBar,       MODKEY,      Button1,        tag,            {0} },
 	{ ClkTagBar,       MODKEY,      Button3,        toggletag,      {0} },
 };
-
-
