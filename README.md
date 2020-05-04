@@ -78,7 +78,7 @@ keybindings consistent with all of my window managers.
 
 # Running dwm
 
-If you do not use a login manager (such as lightdm, for ex.) then you can add the following line to your .xinitrc to start dwm using startx:
+If you do not use a login manager (such as lightdm) then you can add the following line to your .xinitrc to start dwm using startx:
 
     exec dwm
 	
