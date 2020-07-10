@@ -37,7 +37,7 @@ This will create a file that ends in .pkg.tar.xz (for example, dwm-distrotube-gi
 	
 Alternately, you could also install dwm-distrotube-git from the AUR using an AUR helper such as yay:
 
-	yay -S dwm-distrotube-git
+	yay dwm-distrotube-git
 	
 NOTE: Installing dwm-distrotube-git conflicts with the standard dwm package.  If you already have dwm installed, you will be asked if you want to remove dwm and install dwm-distrotube-git instead. 
 	
