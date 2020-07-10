@@ -22,8 +22,8 @@ static const char *fonts[]            = {"Mononoki Nerd Font:size=9:antialias=tr
                                          "Hack:size=8:antialias=true:autohint=true",
                                          "JoyPixels:size=10:antialias=true:autohint=true"
 										};
-static const char col_gray1[]         = "#282a36";
-static const char col_gray2[]         = "#282a36"; /* border color unfocused windows */
+static const char col_gray1[]         = "#292d3e";
+static const char col_gray2[]         = "#292d3e"; /* border color unfocused windows */
 static const char col_gray3[]         = "#96b5b4";
 static const char col_gray4[]         = "#d7d7d7";
 static const char col_cyan[]          = "#924441"; /* border color focused windows and tags */
@@ -90,7 +90,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "dmenu_run", "-p", "Run: ", NULL };
-static const char *termcmd[]     = { "st", NULL };
+static const char *termcmd[]     = { "st", "-e fish", NULL };
 static const char *tabtermcmd[]  = { "tabbed", "-r 2", "st", "-w", "''", NULL };
 
 static Key keys[] = {
@@ -135,7 +135,7 @@ static Key keys[] = {
     /* Apps Launched with SUPER + ALT + KEY */
 	{ MODKEY|Mod1Mask,        XK_b,    spawn,          CMD("tabbed -r 2 surf -pe x '.surf/html/homepage.html'") },
 	{ MODKEY|Mod1Mask,        XK_c,    spawn,          CMD("st -e cmus") },
-	{ MODKEY|Mod1Mask,        XK_e,    spawn,          CMD("st -e neomutt") },
+	{ MODKEY|Mod1Mask,        XK_e,    spawn,          CMD("st -e emacsclient -c -a emacs") },
 	{ MODKEY|Mod1Mask,        XK_f,    spawn,          CMD("st -e vifm") },
 	{ MODKEY|Mod1Mask,        XK_h,    spawn,          CMD("st -e htop") },
 	{ MODKEY|Mod1Mask,        XK_i,    spawn,          CMD("st -e irssi") },
@@ -180,3 +180,5 @@ static Button buttons[] = {
 	{ ClkTagBar,       MODKEY,      Button1,        tag,            {0} },
 	{ ClkTagBar,       MODKEY,      Button3,        toggletag,      {0} },
 };
+
+

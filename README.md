@@ -55,7 +55,7 @@ NOTE: Installing dwm-distrotube will overwrite your existing dwm installation.
 # My Keybindings
 
 The MODKEY is set to the Super key (aka the Windows key).  I try to keep the
-keybindings consistent with all of my window managers.
+keybindings consistent with all of my window managers, but if you several of my window manager configs, there may be some discrepancies between them.
 
 | Keybinding | Action |
 | :--- | :--- |
