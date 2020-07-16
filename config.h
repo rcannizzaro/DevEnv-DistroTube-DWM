@@ -99,7 +99,7 @@ static Key keys[] = {
 	/* modifier             key        function        argument */
 	{ MODKEY|ShiftMask,     XK_Return, spawn,          {.v = dmenucmd } },
 	{ MODKEY,               XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY|ControlMask    XK_Return, spawn,          {.v = tabtermcmd } },
+	{ MODKEY|ControlMask,   XK_Return, spawn,          {.v = tabtermcmd } },
 	{ MODKEY,               XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,     XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,     XK_k,      rotatestack,    {.i = -1 } },
